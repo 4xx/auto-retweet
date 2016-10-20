@@ -9,6 +9,9 @@ var ACCOUNTS_TO_RT = ACCOUNTS_TO_RT_STR.split(',');
 
 var INCLUDE_RTS = process.env.INCLUDE_RTS || false;
 var INCLUDE_MENTIONS = process.env.INCLUDE_MENTIONS || false;
+var EXCLUDE_REPLIES = process.env.EXCLUDE_REPLIES || true;
+var EXCLUDE_RETWEETS = process.env.EXCLUDE_RETWEETS || true;
+var EXCLUDE_MENTIONS = process.env.EXCLUDE_MENTIONS || true;
 var CHECK_INTERVAL = process.env.CHECK_INTERVAL || 300000;
 
 var MOST_RECENT_TWEET_ID;
@@ -45,6 +48,9 @@ function getStatusesForAccount(username) {
     screen_name: username,
     exclude_replies: !INCLUDE_MENTIONS,
     include_rts: INCLUDE_RTS,
+    exclude_replies: EXCLUDE_REPLIES,
+    exclude_retweets: EXCLUDE_RETWEETS,
+    exclude_mentions: EXCLUDE_MENTIONS,
     count: 10,
     since_id: MOST_RECENT_TWEET_ID
   }, (err, tweets, response) => {

@@ -12,7 +12,11 @@ var INCLUDE_MENTIONS = process.env.INCLUDE_MENTIONS || false;
 var EXCLUDE_REPLIES = process.env.EXCLUDE_REPLIES || true;
 var EXCLUDE_RETWEETS = process.env.EXCLUDE_RETWEETS || true;
 var EXCLUDE_MENTIONS = process.env.EXCLUDE_MENTIONS || true;
-var CHECK_INTERVAL = process.env.CHECK_INTERVAL || 300000;
+var TWEET_LANG = process.env.TWEET_LANG || en;
+var MIN_RETWEETS = process.env.MIN_RETWEETS || 1;
+
+var CHECK_INTERVAL = process.env.CHECK_INTERVAL || 600000;
+
 
 var MOST_RECENT_TWEET_ID;
 
@@ -51,6 +55,8 @@ function getStatusesForAccount(username) {
     exclude_replies: EXCLUDE_REPLIES,
     exclude_retweets: EXCLUDE_RETWEETS,
     exclude_mentions: EXCLUDE_MENTIONS,
+    min_retweets: MIN_RETWEETS,
+    tweet_lang: TWEET_LANG,
     count: 10,
     since_id: MOST_RECENT_TWEET_ID
   }, (err, tweets, response) => {

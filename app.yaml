@@ -13,3 +13,14 @@
 
 runtime: nodejs
 vm: true
+
+manual_scaling:
+  instances: 1
+  
+vm_settings:
+  machine_type: f1-micro
+  
+resources:
+  cpu: 1
+  memory_gb: 0.60
+  disk_size_gb: 10

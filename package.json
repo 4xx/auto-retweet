@@ -23,6 +23,7 @@
   "homepage": "https://github.com/sethetter/auto-retweet#readme",
   "dependencies": {
     "dotenv": "^2.0.0",
+    "express": "^4.13.4",
     "twitter": "^1.4.0"
   }
 }
